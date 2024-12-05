@@ -31,58 +31,20 @@
   </div>
    <!-- Timeline Section -->
     <div class="timeline" *ngFor="let note of notes">
-
-
-      <!-- Timeline Item -->
-      <div class="timeline-item mb-4" *ngIf="note.type == 'Message'">
-        <div class="timeline-icon">{{ note.timestamp | date : 'time'}}</div>
+      <div class="timeline-icon"><i class="fa fa-calendar" aria-hidden="true"></i>
+      </div>      
+      <div class="timeline-item mb-4" >
         <div class="timeline-content">
-         <strong>You had a call with <span class="text-primary">{{ note.user }}</span></strong>
+          <small class="text-muted">
+            {{ note.timestamp | date: 'shortTime' }}
+          </small>
+         <strong *ngIf="note.type == 'Message'">You send a message to <span class="text-primary">{{ note.user }}</span></strong>
+         <strong *ngIf="note.type == 'Phone'">You had a call with <span class="text-primary">{{ note.user }}</span></strong>
+         <strong *ngIf="note.type == 'Coffee'">You had a coffee with <span class="text-primary">{{ note.user }}</span></strong>
+         <strong *ngIf="note.type == 'Beer'">You had a beer with <span class="text-primary">{{ note.user }}</span></strong>
+         <strong *ngIf="note.type == 'Meeting Note'">You added a note to <span class="text-primary">{{ note.user }}</span></strong>
           <p>{{ note.content }}</p>
         </div>
-      </div>
-      <!-- Timeline Item -->
-      <div class="timeline-item mb-4" *ngIf="note.type == 'Phone'">
-        <div class="timeline-icon">5d</div>
-        <div class="timeline-content">
-         <strong>You had a meeting with <span class="text-primary">{{ note.user }}</span></strong>
-          <p>{{ note.content }}</p>
-        </div>
-        <button class="btn btn-outline-secondary btn-sm action-btn" title="Delete">
-          <i class="bi bi-trash"></i>
-        </button>
-      </div>
-      <!-- Timeline Item -->
-      <div class="timeline-item mb-4" *ngIf="note.type == 'Coffee'">
-        <div class="timeline-icon">6d</div>
-        <div class="timeline-content">
-          <strong>You had a coffee with <span class="text-primary">{{ note.user }}</span></strong>
-          <p>{{ note.content }}</p>
-        </div>
-        <button class="btn btn-outline-secondary btn-sm action-btn" title="Delete">
-          <i class="bi bi-trash"></i>
-        </button>
-      </div>
-      <!-- Timeline Item -->
-      <div class="timeline-item" *ngIf="note.type == 'Beer'">
-        <div class="timeline-icon">14d</div>
-        <div class="timeline-content">
-          <strong>You added a note to <span class="text-primary">{{ note.user }}</span></strong>
-          <p>{{ note.content }}</p>
-        </div>
-        <button class="btn btn-outline-secondary btn-sm action-btn" title="Delete">
-          <i class="bi bi-trash"></i>
-        </button>
-      </div>
-      <div class="timeline-item" *ngIf="note.type == 'Meeting Note'">
-        <div class="timeline-icon">14d</div>
-        <div class="timeline-content">
-          <strong>You added a note to <span class="text-primary">{{ note.user }}</span></strong>
-          <p>{{ note.content }}</p>
-        </div>
-        <button class="btn btn-outline-secondary btn-sm action-btn" title="Delete">
-          <i class="bi bi-trash"></i>
-        </button>
       </div>
     </div>
   
