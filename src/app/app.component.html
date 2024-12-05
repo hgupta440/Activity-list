@@ -29,25 +29,61 @@
       <button class="btn btn-primary" (click)="addNote()">Add Note</button>
     </div>
   </div>
+   <!-- Timeline Section -->
+    <div class="timeline" *ngFor="let note of notes">
 
-  <ul class="list-group">
-    <li
-      class="list-group-item d-flex justify-content-between align-items-start"
-      *ngFor="let note of notes"
-    >
-      <div>
-        <div>
-          <strong>{{ note.user }}</strong> wrote a
-          <em>{{ note.type }}</em> note
+
+      <!-- Timeline Item -->
+      <div class="timeline-item mb-4" *ngIf="note.type == 'Message'">
+        <div class="timeline-icon">{{ note.timestamp | date : 'time'}}</div>
+        <div class="timeline-content">
+         <strong>You had a call with <span class="text-primary">{{ note.user }}</span></strong>
+          <p>{{ note.content }}</p>
         </div>
-        <small class="text-muted">
-          {{ note.timestamp | date: 'shortTime' }}
-        </small>
-        <p class="mb-1">{{ note.content }}</p>
       </div>
-      <button class="btn btn-danger btn-sm" (click)="deleteNote(note.id)">
-        Delete
-      </button>
-    </li>
-  </ul>
+      <!-- Timeline Item -->
+      <div class="timeline-item mb-4" *ngIf="note.type == 'Phone'">
+        <div class="timeline-icon">5d</div>
+        <div class="timeline-content">
+         <strong>You had a meeting with <span class="text-primary">{{ note.user }}</span></strong>
+          <p>{{ note.content }}</p>
+        </div>
+        <button class="btn btn-outline-secondary btn-sm action-btn" title="Delete">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+      <!-- Timeline Item -->
+      <div class="timeline-item mb-4" *ngIf="note.type == 'Coffee'">
+        <div class="timeline-icon">6d</div>
+        <div class="timeline-content">
+          <strong>You had a coffee with <span class="text-primary">{{ note.user }}</span></strong>
+          <p>{{ note.content }}</p>
+        </div>
+        <button class="btn btn-outline-secondary btn-sm action-btn" title="Delete">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+      <!-- Timeline Item -->
+      <div class="timeline-item" *ngIf="note.type == 'Beer'">
+        <div class="timeline-icon">14d</div>
+        <div class="timeline-content">
+          <strong>You added a note to <span class="text-primary">{{ note.user }}</span></strong>
+          <p>{{ note.content }}</p>
+        </div>
+        <button class="btn btn-outline-secondary btn-sm action-btn" title="Delete">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+      <div class="timeline-item" *ngIf="note.type == 'Meeting Note'">
+        <div class="timeline-icon">14d</div>
+        <div class="timeline-content">
+          <strong>You added a note to <span class="text-primary">{{ note.user }}</span></strong>
+          <p>{{ note.content }}</p>
+        </div>
+        <button class="btn btn-outline-secondary btn-sm action-btn" title="Delete">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </div>
+  
 </div>

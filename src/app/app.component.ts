@@ -29,7 +29,7 @@ export class AppComponent {
         user: this.newNote.user,
         type: this.newNote.type as Note['type'],
         content: this.newNote.content,
-        timestamp: new Date(),
+        timestamp: new Date().getTime(),
       };
       this.noteService.addNote(note);
       this.newNote.content = '';
