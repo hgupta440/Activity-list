@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <h2>Activity List</h2>
+  <div class="mb-4">
+    <div class="input-group mb-2">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your name"
+        [(ngModel)]="newNote.user"
+      />
+    </div>
+    <div class="input-group mb-2">
+      <select class="form-select" [(ngModel)]="newNote.type">
+        <option value="Message">Message</option>
+        <option value="Phone">Phone</option>
+        <option value="Coffee">Coffee</option>
+        <option value="Beer">Beer</option>
+        <option value="Meeting Note">Meeting Note</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <textarea
+        class="form-control"
+        placeholder="Enter a note"
+        [(ngModel)]="newNote.content"
+      ></textarea>
+    </div>
+    <div class="input-group mt-4">
+      <button class="btn btn-primary" (click)="addNote()">Add Note</button>
+    </div>
+  </div>
+
+  <ul class="list-group">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-start"
+      *ngFor="let note of notes"
+    >
+      <div>
+        <div>
+          <strong>{{ note.user }}</strong> wrote a
+          <em>{{ note.type }}</em> note
+        </div>
+        <small class="text-muted">
+          {{ note.timestamp | date: 'shortTime' }}
+        </small>
+        <p class="mb-1">{{ note.content }}</p>
+      </div>
+      <button class="btn btn-danger btn-sm" (click)="deleteNote(note.id)">
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>
