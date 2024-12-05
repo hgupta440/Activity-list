@@ -3,5 +3,5 @@ export interface Note {
   user: string;
   type: 'Message' | 'Phone' | 'Coffee' | 'Beer' | 'Meeting Note';
   content: string;
-  timestamp: Date;
+  timestamp: number;
 }

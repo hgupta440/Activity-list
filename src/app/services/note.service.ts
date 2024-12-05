@@ -8,7 +8,7 @@ export class NoteService {
   private notes: Note[] = [];
 
   getNotes(): Note[] {
-    return this.notes.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+    return this.notes.sort((a, b) => b.timestamp - a.timestamp);
   }
 
   addNote(note: Note): void {

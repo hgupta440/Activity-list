@@ -8,3 +8,53 @@
     gap: 0.5rem;
   }
   
+.timeline {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 2px solid #d9d9d9;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -20px;
+  background-color: #007bff;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.timeline-content {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+.action-btn {
+  border: none;
+  background-color: transparent;
+  color: #6c757d;
+}
+
+.action-btn:hover {
+  color: #dc3545;
+  cursor: pointer;
+}

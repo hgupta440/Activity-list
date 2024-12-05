@@ -29,25 +29,23 @@
       <button class="btn btn-primary" (click)="addNote()">Add Note</button>
     </div>
   </div>
-
-  <ul class="list-group">
-    <li
-      class="list-group-item d-flex justify-content-between align-items-start"
-      *ngFor="let note of notes"
-    >
-      <div>
-        <div>
-          <strong>{{ note.user }}</strong> wrote a
-          <em>{{ note.type }}</em> note
+   <!-- Timeline Section -->
+    <div class="timeline" *ngFor="let note of notes">
+      <div class="timeline-icon"><i class="fa fa-calendar" aria-hidden="true"></i>
+      </div>      
+      <div class="timeline-item mb-4" >
+        <div class="timeline-content">
+          <small class="text-muted">
+            {{ note.timestamp | date: 'shortTime' }}
+          </small>
+         <strong *ngIf="note.type == 'Message'">You send a message to <span class="text-primary">{{ note.user }}</span></strong>
+         <strong *ngIf="note.type == 'Phone'">You had a call with <span class="text-primary">{{ note.user }}</span></strong>
+         <strong *ngIf="note.type == 'Coffee'">You had a coffee with <span class="text-primary">{{ note.user }}</span></strong>
+         <strong *ngIf="note.type == 'Beer'">You had a beer with <span class="text-primary">{{ note.user }}</span></strong>
+         <strong *ngIf="note.type == 'Meeting Note'">You added a note to <span class="text-primary">{{ note.user }}</span></strong>
+          <p>{{ note.content }}</p>
         </div>
-        <small class="text-muted">
-          {{ note.timestamp | date: 'shortTime' }}
-        </small>
-        <p class="mb-1">{{ note.content }}</p>
       </div>
-      <button class="btn btn-danger btn-sm" (click)="deleteNote(note.id)">
-        Delete
-      </button>
-    </li>
-  </ul>
+    </div>
+  
 </div>
